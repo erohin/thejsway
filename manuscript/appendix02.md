@@ -2,7 +2,7 @@
 
 Here are the coding rules and principles used throughout the book.
 
-> This chapter is by nature subjective and opiniated. Feel free to make your own choices.
+> This chapter is by nature subjective and opinionated. Feel free to make your own choices.
 
 ## Naming
 
@@ -38,7 +38,7 @@ W> Like many other languages, JavaScript is **case sensitive**. For example, `my
 
 This is a subject of many debates in the JavaScript community: using spaces or tabulations for indenting, omitting semicolons, simple vs double quotes for strings, and so on.
 
-A simple and efficient solution is to rely on a tool au automate the low-level task of formatting code, so that you can concentrate on more high-level work. This book uses [Prettier](https://github.com/prettier/prettier) with default configuration (double quotes and semicolons).
+A simple and efficient solution is to rely on a tool to automate the low-level task of formatting code, so that you can concentrate on more high-level work. This book uses [Prettier](https://github.com/prettier/prettier) with default configuration (double quotes and semicolons).
 
 ## Code quality
 
@@ -48,7 +48,7 @@ Fortunately, specialized tools called **linters** can check your code against ru
 
 This book uses [ESLint](http://eslint.org) for linting code. ESLint is a very flexible tool and you can tailor it to your specific needs. Different set of ESLint rules have emerged, notably one based on the popular [AirBnb Style Guide](https://github.com/airbnb/javascript).
 
-> This opiniated style guide is well worth a read.
+> This opinionated style guide is well worth a read.
 
 This book's ESLint configuration extends the AirBnb and Prettier rules (Prettier getting the precedence), with a few minor deviations.
 

@@ -6,21 +6,21 @@ Object-oriented programming, albeit quite popular, is not the only way to create
 
 * **Functional programming** is about writing programs by combining functions expressing *what* the program should do, rather than *how* to do it (which is the imperative way).
 
-* The **state** of a program is the value of its **global variables** at a given time. A goal of functional programming is to minimize state **mutations** (changes) that make the code harder to understand. Some possible solutions are declaring variables with `const` instead of `let`, splitting the code into functions and favor local variables over global ones.
+* The **state** of a program is the value of its **global variables** at a given time. A goal of functional programming is to minimize state **mutations** (changes) that make the code harder to understand. Some possible solutions are declaring variables with `const` instead of `let`, splitting the code into functions, and favoring local over global variables.
 
-* A **pure function** depends solely in its inputs for computing its outputs and has no **side effect**. Pure functions are easier to understand, combine together, and debug. Functional programming favors the use of pure functions whenever possible.
+* A **pure function** depends solely on its inputs for computing its outputs and has no **side effect**. Pure functions are easier to understand, combine together, and debug. Functional programming favors the use of pure functions whenever possible.
 
 * The `map()`, `filter()` and `reduce()` methods can replace loops for array traversal and let you program with arrays in a functional way.
 
-* JavaScript functions can be passed around just like any other value: they are **first-class citizens**, enabling functional programming. A function that operates on another function (taking it as an parameter or returning it) is called an **higher-order function**.
+* JavaScript functions can be passed around just like any other value: they are **first-class citizens**, enabling functional programming. A function that operates on another function (taking it as a parameter or returning it) is called a **higher-order function**.
 
 * JavaScript is a **multi-paradigm** language: you can write programs using an imperative, object-oriented or functional programming style.
 
 ## Context: a movie list
 
-In this chapter, we'll start with an example program and improve it little by little, without adding any new functionality. This important programmer task is called **refactoring**.
+In this chapter, we'll start with an example program and improve it little by little, without adding any new functionality. This important programming task is called **refactoring**.
 
-Our initial program is about recent Batman movies. The data comes under the form of an array of objects, each object describing a movie.
+Our initial program is about recent Batman movies. The data comes under the form of an array of objects, with each object describing a movie.
 
 ```js
 const movieList = [
@@ -74,14 +74,14 @@ And here is the rest of the program that uses this data to show some results abo
 ```js
 // Get movie titles
 const titles = [];
-for (movie of movieList) {
+for (const movie of movieList) {
   titles.push(movie.title);
 }
 console.log(titles);
 
 // Count movies by Christopher Nolan
 const nolanMovieList = [];
-for (movie of movieList) {
+for (const movie of movieList) {
   if (movie.director === "Christopher Nolan") {
     nolanMovieList.push(movie);
   }
@@ -90,7 +90,7 @@ console.log(nolanMovieList.length);
 
 // Get titles of movies with an IMDB rating greater or equal to 7.5
 const bestTitles = [];
-for (movie of movieList) {
+for (const movie of movieList) {
   if (movie.imdbRating >= 7.5) {
     bestTitles.push(movie.title);
   }
@@ -100,10 +100,10 @@ console.log(bestTitles);
 // Compute average movie rating of Christopher Nolan's movies
 let ratingSum = 0;
 let averageRating = 0;
-for (movie of nolanMovieList) {
+for (const movie of nolanMovieList) {
   ratingSum += movie.imdbRating;
 }
-averageRating = ratingSum / movieList.length;
+averageRating = ratingSum / nolanMovieList.length;
 console.log(averageRating);
 ```
 
@@ -113,9 +113,9 @@ console.log(averageRating);
 
 The previous program is an example of what is called **imperative programming**. In this paradigm, the programmer gives orders to the computer through a series of statements that modify the program state. Imperative programming focuses on describing *how* a program operates.
 
-The concept of state is an important one. The **state** of a program is the value of its **global variables** (variables accessible everythere in the code) at a given time. In our example, the values of `movieList`, `titles`, `nolanMovieCount`, `bestTitles`, `ratingSum` and `averageRating` form the state of the program. Any assignment to one of these variables is a state change, often called a **mutation**.
+The concept of state is an important one. The **state** of a program is the value of its **global variables** (variables accessible everywhere in the code) at a given time. In our example, the values of `movieList`, `titles`, `nolanMovieCount`, `bestTitles`, `ratingSum` and `averageRating` form the state of the program. Any assignment to one of these variables is a state change, often called a **mutation**.
 
-In imperative programming, the state can be modified anywhere in the source code. This is convenient, but can also lead to nasty bugs and maintenance headaches. As the program grows in size and complexity, it's becoming easier for the programmer to mutate a part of the state by mistake, and harder to monitor state modifications.
+In imperative programming, the state can be modified anywhere in the source code. This is convenient, but can also lead to nasty bugs and maintenance headaches. As a program grows in size and complexity, it becomes easier for the programmer to mutate a part of the state by mistake and harder to monitor state modifications.
 
 ### Limiting mutations with `const` variables
 
@@ -149,7 +149,7 @@ Let's try to introduce some functions in our code.
 // Get movie titles
 const titles = () => {
   const titles = [];
-  for (movie of movieList) {
+  for (const movie of movieList) {
     titles.push(movie.title);
   }
   return titles;
@@ -157,7 +157,7 @@ const titles = () => {
 
 // Get movies by Christopher Nolan
 const nolanMovies = () => {
-  for (movie of movieList) {
+  for (const movie of movieList) {
     if (movie.director === "Christopher Nolan") {
       nolanMovieList.push(movie);
     }
@@ -167,7 +167,7 @@ const nolanMovies = () => {
 // Get titles of movies with an IMDB rating greater or equal to 7.5
 const bestTitles = () => {
   const bestTitles = [];
-  for (movie of movieList) {
+  for (const movie of movieList) {
     if (movie.imdbRating >= 7.5) {
       bestTitles.push(movie.title);
     }
@@ -178,7 +178,7 @@ const bestTitles = () => {
 // Compute average rating of Christopher Nolan's movies
 const averageNolanRating = () => {
   let ratingSum = 0;
-  for (movie of nolanMovieList) {
+  for (const movie of nolanMovieList) {
     ratingSum += movie.imdbRating;
   }
   return ratingSum / nolanMovieList.length;
@@ -193,7 +193,7 @@ console.log(bestTitles());
 console.log(averageNolanRating());
 ```
 
-The state of our program is now limited to two variables: `movieList` and `nolanMovieList` (the latter being necessary in functions `nolanMovies()` and `averageNolanRating()`). The other variables are now local to the functions they are used into, which limit the possibility of an accidental state mutation.
+The state of our program is now limited to two variables: `movieList` and `nolanMovieList` (the latter being necessary in functions `nolanMovies()` and `averageNolanRating()`). The other variables are now local to the functions they are used into, which limits the possibility of an accidental state mutation.
 
 Also, this version of the program is easier to understand than the previous one. Functions with appropriate names help describe a program's behavior. Comments are now less necessary than before.
 
@@ -201,7 +201,7 @@ Also, this version of the program is easier to understand than the previous one.
 
 Merely introducing some functions in a program is not enough to follow the functional programming paradigm. Whenever possible, we also need to use pure functions.
 
-A **pure function** is a function has the following characteristics:
+A **pure function** is a function that has the following characteristics:
 
 * Its outputs depend solely on its inputs.
 * It has no side effect.
@@ -218,7 +218,7 @@ Let's refactor our example code to introduce pure functions.
 // Get movie titles
 const titles = movies => {
   const titles = [];
-  for (movie of movies) {
+  for (const movie of movies) {
     titles.push(movie.title);
   }
   return titles;
@@ -227,7 +227,7 @@ const titles = movies => {
 // Get movies by Christopher Nolan
 const nolanMovies = movies => {
   const nolanMovies = [];
-  for (movie of movies) {
+  for (const movie of movies) {
     if (movie.director === "Christopher Nolan") {
       nolanMovies.push(movie);
     }
@@ -238,7 +238,7 @@ const nolanMovies = movies => {
 // Get titles of movies with an IMDB rating greater or equal to 7.5
 const bestTitles = movies => {
   const bestTitles = [];
-  for (movie of movies) {
+  for (const movie of movies) {
     if (movie.imdbRating >= 7.5) {
       bestTitles.push(movie.title);
     }
@@ -249,7 +249,7 @@ const bestTitles = movies => {
 // Compute average rating of a movie list
 const averageRating = movies => {
   let ratingSum = 0;
-  for (movie of movies) {
+  for (const movie of movies) {
     ratingSum += movie.imdbRating;
   }
   return ratingSum / movies.length;
@@ -264,7 +264,7 @@ console.log(averageRating(nolanMovieList));
 
 Since we only do refactoring, the program output is still the same.
 
-The program state (`movieList` and `nolanMovieList`) hasn't changed. However, all our functions are now pure: instead of accessing the state, they use parameters to achieve their desired behavior. As an added benefit, the function `averageRating()` can now compute the average rating of any movie list: it has become more **generic**.
+The program state (`movieList` and `nolanMovieList`) hasn't changed. However, all our functions are now pure; instead of accessing the state, they use parameters to achieve their desired behavior. As an added benefit, the function `averageRating()` can now compute the average rating of any movie list; it has become more **generic**.
 
 ## Array operations
 
@@ -292,7 +292,7 @@ Here's how our `titles()` could be rewritten using `map()`. Look how the functio
 const titles = movies => {
   /* Previous code
   const titles = [];
-  for (movie of movies) {
+  for (const movie of movies) {
     titles.push(movie.title);
   }
   return titles;
@@ -305,13 +305,13 @@ const titles = movies => {
 
 ### The `filter()` method
 
-The `filter()` method offers a way to test every element of an array against a provided function. Only elements that pass this test are added in the returned array.
+The `filter()` method offers a way to test every element of an array against a provided function. Only elements that pass this test are added to the returned array.
 
 Here's an example of using `filter()`.
 
 ```js
 const numbers = [1, 5, 10, 15];
-// Keep only the number greater or equal to 10
+// Keep only the number greater than or equal to 10
 const bigOnes = numbers.filter(x => x >= 10);
 
 console.log(numbers); // [1, 5, 10, 15] (no change)
@@ -325,7 +325,7 @@ We can use this method in the `nolanMovies()` function.
 const nolanMovies = movies => {
   /* Previous code
   const nolanMovies = [];
-  for (movie of movies) {
+  for (const movie of movies) {
     if (movie.director === "Christopher Nolan") {
       nolanMovies.push(movie);
     }
@@ -344,8 +344,8 @@ The `map()` and `filter()` method can be used together to achieve powerful effec
 // Get titles of movies with an IMDB rating greater or equal to 7.5
 const bestTitles = movies => {
   /* Previous code
-  onst bestTitles = [];
-  for (movie of movies) {
+  const bestTitles = [];
+  for (const movie of movies) {
     if (movie.imdbRating >= 7.5) {
       bestTitles.push(movie.title);
     }
@@ -379,14 +379,14 @@ The `reduce()` method can take several parameters:
 
 * The second one is the initial value of the accumulator (often 0).
 
-Here's how to apply `reduce()` to caculate the average rating of a movie list.
+Here's how to apply `reduce()` to calculate the average rating of a movie list.
 
 ```js
 // Compute average rating of a movie list
 const averageRating = movies => {
   /* Previous code
   let ratingSum = 0;
-  for (movie of movies) {
+  for (const movie of movies) {
     ratingSum += movie.imdbRating;
   }
   return ratingSum / movies.length;
@@ -411,14 +411,14 @@ const ratingSum = movies.map(movie => movie.imdbRating).reduce((acc, value) => a
 
 Throughout this chapter, we have leveraged the fact that JavaScript functions can be passed around just like any other value. We say that functions are **first-class citizens** in JavaScript, which means that they are treated equal to other types.
 
-Thanks to their first-class citizenry, functions can be combined together, rendering programs even more expressive and enabling a truly functional programming style. A function that takes another function as a parameter or returns another function is called an **higher-order function**.
+Thanks to their first-class citizenry, functions can be combined together, rendering programs even more expressive and enabling a truly functional programming style. A function that takes another function as a parameter or returns another function is called a **higher-order function**.
 
 Check out this final version of our example program.
 
 ```js
 const titles = movies => movies.map(movie => movie.title);
 const byNolan = movie => movie.director === "Christopher Nolan";
-const filter = (movies, fct) => movies.filter(fct);
+const filter = (movies, func) => movies.filter(func);
 const goodRating = movie => movie.imdbRating >= 7.5;
 const ratings = movies => movies.map(movie => movie.imdbRating);
 const average = array => array.reduce((sum, value) => sum + value, 0) / array.length;
@@ -434,7 +434,7 @@ We have defined helper functions that we combine to achieve the desired behaviou
 
 ## JavaScript: a multi-paradigm language
 
-The JavaScript language is full of paradoxes. It has famously been [invented in ten days](https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript), and is now enjoying a popularity almost unique in programming history. Its syntax borrows heavily from maintream imperative languages like C or Java, but its design principles are closer to functional languages like [Scheme](https://en.wikipedia.org/wiki/Scheme_(programming_language)).
+The JavaScript language is full of paradoxes. It has famously been [invented in ten days](https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript), and is now enjoying a popularity almost unique in programming history. Its syntax borrows heavily from mainstream imperative languages like C or Java, but its design principles are closer to functional languages like [Scheme](https://en.wikipedia.org/wiki/Scheme_(programming_language)).
 
 JavaScript's multi-paradigm nature means you can write imperative, object-oriented or functional code, choosing the right tool for the job and leveraging your previous programming experience. As always, diversity is a source of flexibility and ultimately a strength.
 
@@ -505,7 +505,7 @@ Complete the following program to compute and show the names of political forms 
 const governmentForms = [
   {
     name: "Plutocracy",
-    definition: "Rule by the weathly"
+    definition: "Rule by the wealthy"
   },
   {
     name: "Oligarchy",

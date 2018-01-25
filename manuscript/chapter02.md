@@ -16,11 +16,11 @@ You know how to use JavaScript to display values. However, for a program to be t
 
 * Expressions may be included in strings delimited by a pair of backticks (\`). Such a string is called a **template literal**.
 
-* **Type conversions** may happen implicitely during the evaluation of an expression, or explicitely when using the `Number()` and `String()` commands, to obtain a respectively a number or a string.
+* **Type conversions** may happen implicitly during the evaluation of an expression, or explicitly when using the `Number()` and `String()` commands, to obtain respectively a number or a string.
 
 * The `prompt()` and `alert()` commands deal with information input and display under the form of dialog boxes.
 
-* Variable naming is essential to program lisibility. Following a naming convention like [camelCase](https://en.wikipedia.org/wiki/Camel_case) is good practice.
+* Variable naming is essential to program visibility. Following a naming convention like [camelCase](https://en.wikipedia.org/wiki/Camel_case) is good practice.
 
 ## Variables
 
@@ -32,7 +32,7 @@ A computer program stores data using variables. A **variable** is an information
 
 A variable has three main properties:
 
-* Its **name**, which identifies it. A variable name may contain upper and lower case letters, numbers (not in the first position) and characters like the dollar (`$`) or underscore (`_`).
+* Its **name**, which identifies it. A variable name may contain upper and lower case letters, numbers (not in the first position) and characters like the dollar sign (`$`) or underscore (`_`).
 * Its **value**, which is the data stored in the variable.
 * Its **type**, which determines the role and actions available to the variable.
 
@@ -104,7 +104,7 @@ In the following example, lines 2 and 3 each increase the value of variable b  b
 ```js
 let b = 0;      // b contains 0
 b += 1;         // b contains 1
-b++;            // b conttains 2
+b++;            // b contains 2
 console.log(b); // Shows 2
 ```
 
@@ -143,7 +143,7 @@ let e = 3 + 2 * 4; // e contains 11 (3 + 8)
 e = (3 + 2) * 4;   // e contains 20 (5 * 4)
 ```
 
-It is possible to include expressions in a string by using **backticks** (\`) to delimitate the string. Such a string is called a **template literal**. Inside a template literal, expressions are identified by the `${expression}` syntax.
+It is possible to include expressions in a string by using **backticks** (\`) to delimit the string. Such a string is called a **template literal**. Inside a template literal, expressions are identified by the `${expression}` syntax.
 
 This is often used to create strings containing the values of some variables.
 
@@ -192,7 +192,7 @@ const name = prompt("Enter your first name:");
 alert(`Hello, ${name}`);
 ```
 
-During execution, an dialog box pops up, asking for your name.
+During execution, a dialog box pops up, asking for your name.
 
 ![Execution result](images/chapter02-04.png)
 
@@ -219,7 +219,7 @@ console.log(temp1, temp2, temp3); // Show "36.9 37.6 37.1"
 
 ### Entering a number
 
-Regardless of the entered data, the `prompt()` command always return a string value. If this value is to be used in numerical expressions, it *must* be converted into a number with the `Number()` command.
+Regardless of the entered data, the `prompt()` command always returns a string value. If this value is to be used in numerical expressions, it *must* be converted into a number with the `Number()` command.
 
 ```js
 const input = prompt("Enter a number:"); // input's type is string
@@ -256,15 +256,15 @@ console.log(perimeter);
 
 They function in the same way, but the second version is much easier to understand.
 
-Naming things is an important part of the programmer's job. Refer to the [appendix](#style-guide) for some useful advice.
+Naming things is an important part of the programmer's job. Refer to the appendix for some useful advice.
 
 ## Coding time!
 
-Build a habit of choosing good variables name in all exercises, starting with these ones.
+Build a habit of choosing good variable names in all exercises, starting with these ones.
 
 ### Improved hello
 
-Write a program that asks the user for his first name and his last name. Th program then displays them in one sentence.
+Write a program that asks the user for his first name and his last name. The program then displays them in one sentence.
 
 ### Final values
 
@@ -288,7 +288,7 @@ Check your prediction by executing it.
 
 ### VAT calculation
 
-Write a program that asks the user for a raw price. After that, its calculates the corresponding final price using a VAT rate of 20.6%.
+Write a program that asks the user for a raw price. After that, it calculates the corresponding final price using a VAT rate of 20.6%.
 
 ### From Celsius to Fahrenheit degrees
 

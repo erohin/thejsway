@@ -1,6 +1,6 @@
 # What's a web page?
 
-This short chapter summarizes what you need to known about the Web and web pages.
+This short chapter summarizes what you need to know about the Web and web pages.
 
 ## TL;DR
 
@@ -8,7 +8,7 @@ This short chapter summarizes what you need to known about the Web and web pages
 
 * A **web page** is a document suitable for the Web. Creating web pages usually involves three technologies: [HTML](https://en.wikipedia.org/wiki/HTML) to structure the content, [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) to define its presentation and JavaScript to add interactivity.
 
-* An HTML document is made of text and structural elements called **tags** that describe the page content: paragraphs, headings, hyperlinks, images, etc.
+* An HTML document is made of text and structural elements called **tags** that describe the page content, such as: paragraphs, headings, hyperlinks, images, etc.
 
 * CSS uses **selectors** to declare which HTML elements a style applies to. Elements can be selected by tag name (`h1`), by class (`.done`) or by identifier (`#rude`).
 
@@ -75,6 +75,7 @@ Here is an example of a simple web page, usually stored as an `.html` file.
 
 Here are a few references for learning more about HTML:
 
+* [Interneting is Hard - A friendly web development tutorial for complete beginners](https://internetingishard.com/html-and-css/)
 * [Khan Academy - Intro to HTML](https://www.khanacademy.org/computing/computer-programming/html-css#intro-to-html)
 * [Mozilla Developer Network - HTML reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference)
 
@@ -135,7 +136,7 @@ A JavaScript file, usually stored in a `.js` file, is loaded by a web page with 
 
 To create interactive web pages, you need to write HTML, CSS and JavaScript code. If you're just starting out, the easiest way to do so is by using an online JavaScript playground. However, you will likely want to develop in a more professional fashion at some point, or need to work offline.
 
-Refer to the [appendix](#env-setup) for details on setting up your environment.
+Refer to the appendix for details on setting up your environment.
 
 ## Coding time!
 
@@ -143,7 +144,7 @@ You can skip this exercise if you have prior experience with HTML and CSS.
 
 ### Your first web page
 
-Follow the beginning of the [Getting started with the Web](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web) tutorial from Mozilla Develper Network to create a simple web page using HTML and CSS. The required steps are:
+Follow the beginning of the [Getting started with the Web](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web) tutorial from Mozilla Developer Network to create a simple web page using HTML and CSS. The required steps are:
 
 1. [What will your website look like?](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/What_will_your_website_look_like)
 1. [Dealing with files](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files)

@@ -6,7 +6,7 @@ This chapter will help you discover how a web page is shown by a browser.
 
 * A **web page** is a structured document containing both text and HTML tags. The **DOM**, or *Document Object Model*, is a standardized way to define a web page's structure.
 
-* Tho DOM is alos an **API** allowing programmatical interactions with the web page. With JavaScript, you can access the structure of a page displayed in a browser and modify it.
+* The DOM is also an **API** allowing programmatical interactions with the web page. With JavaScript, you can access the structure of a page displayed in a browser and modify it.
 
 * The DOM represents a web page as a hierarchy of **objects**, where each object corresponds to a node in the nested HTML element tree.
 
@@ -42,15 +42,15 @@ Let's take this simple web page as an example. Feel free to add your own informa
 
 To create this result, the browser first takes the HTML code and builds a representation of its structure. It then displays this structure in the browser.
 
-The browser also offers a *programmatical* access to its structured representation of a displayed web page. Using this interface, you can dynamically update the page: adding or removing elements, changing styles, etc. This is how you create **interactive** web pages.
+The browser also offers *programmatic* access to its structured representation of a displayed web page. Using this interface, you can dynamically update the page by adding or removing elements, changing styles, etc. This is how you create **interactive** web pages.
 
 The structured representation of a web page is called **DOM**, short for *Document Object Model*. The DOM defines the structure of a page and a way to interact with it. This means it's a programming interface, or **API** (*Application Programming Interface*). JavaScript is the language of choice for interacting with the DOM.
 
-> At the dawn of the Web, each browser was using its own DOM, giving headaches to JavaScript developers trying to code web pages. These hard times are over: through a [World Wide Web Consortium](https://w3c.org) (W3C) effort, the first version of a unified DOM was created in 1998. Nowadays, all recent browsers use a standardized DOM.
+> At the dawn of the Web, each browser was using its own DOM, giving headaches to JavaScript developers trying to code web pages. These hard times are over. Through a [World Wide Web Consortium](https://w3c.org) (W3C) effort, the first version of a unified DOM was created in 1998. Nowadays, all recent browsers use a standardized DOM.
 
 ## Web page structure
 
-A web page is a set of nested tags. You can represent it in a hierarchical form called a **tree**. The `<html>` element sets up your document as HTML and contains two sub-elements, `<head>` and `<body>`, which themselves contain several sub-elements.
+A web page is a set of nested tags. You can represent a web page in a hierarchical form called a **tree**. The `<html>` element sets up your document as HTML and contains two sub-elements, `<head>` and `<body>`, which themselves contain several sub-elements.
 
 Here is the tree corresponding to our example HTML page.
 
@@ -95,7 +95,7 @@ As expected, the DOM object `body` is an element node because it's an HTML tag.
 
 ### Access a node's children
 
-Each element-typed object in the DOM has a property called `childNodes`. This is an ordered collection containing all its child nodes as DOM objects. You can use this collection a bit like an array to access the different children of a node.
+Each element-typed object in the DOM has a property called `childNodes`. This is an ordered collection containing all its child nodes as DOM objects. You can use this array-like collection to access the different children of a node.
 
 W> The `childNodes` property of an element node is not a real JavaScript array, but rather a [NodeList](https://developer.mozilla.org/en-US/docs/Web/API/NodeList) object. Not all of the standard array methods are applicable to it.
 
@@ -125,7 +125,7 @@ To eliminate these text nodes between tags, you could have written the HTML page
 <body><h1>My web page</h1><!-- ... -->
 ```
 
-It's better, however, to take the text nodes between tags into accouant than to sacrifice lisibility and code indentation.
+It's better, however, to take the text nodes between tags into account than to sacrifice visibility and code indentation.
 
 ### Browse child nodes
 
@@ -174,9 +174,9 @@ console.log(document.parentNode); // Will show null, since body has no parent no
 
 ### Showing a node's child
 
-Your mission here is to create a `showChild()` function that shows one a of children of an DOM element node. This function takes as parameter the parent node and the child node index. Error cases like non-element node or out-of-limits index must be taken into account.
+Your mission here is to create a `showChild()` function that shows one of the children of a DOM element node. This function takes as parameter the parent node and the child node index. Error cases like a non-element node or an out-of-limits index must be taken into account.
 
-Here'e the associated HTML code.
+Here's the associated HTML code.
 
 ```html
 <h1>A title</h1>

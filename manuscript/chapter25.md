@@ -2,11 +2,11 @@
 
 It's time to put your Node.js knowledge into practice and create a real-world web server in JavaScript. This is often called **back-end programming**.
 
-> You will build exactly the server that was used in the previous chapters dealing with client-side web development. To test your server code, you can go back to code examples from chapters 22 and 23, and only change the start of the server URL from `https://thejsway-server.glitch.com` to your server URL.
+> You will build exactly the server that was used in the previous chapters dealing with client-side web development. To test your server code, you can go back to code examples from chapters 22 and 23, and only change the start of the server URL from `https://thejsway-server.herokuapp.com` to your own server URL (which would be `http://localhost:3000` if your server runs on your local machine).
 
 ## TL;DR
 
-* The Node.js platform is well suited for creating **web servers** in JavaScript, with or with the help of a framework.
+* The Node.js platform is well suited for creating **web servers** in JavaScript, with or without the help of a framework.
 
 * A **framework** provides a standard way to design and structure an application. **Express** is a common choice for building a web server with Node.
 
@@ -20,7 +20,7 @@ It's time to put your Node.js knowledge into practice and create a real-world we
 
 ## Using a framework
 
-We saw in the previous chapter that Node.js was a platform for building JavaScript applications outside the browser. as such, Node is well suited for creating **web servers** in JavaScript.
+We saw in the previous chapter that Node.js is a platform for building JavaScript applications outside the browser. as such, Node is well suited for creating **web servers** in JavaScript.
 
 > As a reminder, a web server is a machine built specially to publish resources on the Web.
 
@@ -110,7 +110,7 @@ When an HTTP request is made to the route URL, the associated callback function 
 
 To process incoming request, a web server must listen on a specific port. A **port** is a communication endpoint on a machine.
 
-The main Express object has a `listen()` method that taks as parameter the listening port and a callback function called for each request. The last part of the server code calls this method to start listening.
+The main Express object has a `listen()` method that tasks as parameter the listening port and a callback function called for each request. The last part of the server code calls this method to start listening.
 
 ```js
 // Start listening to incoming requests
@@ -218,7 +218,7 @@ app.post("/animals", upload.array(), (request, response) => {
 
 The values of the `name` and `vote` variables are extracted from the request body, and a string is constructed and sent back to the client.
 
-![Execution result](images/chapter25-06.png)
+![Execution result](images/chapter23-02.png)
 
 ### Handling JSON data
 
@@ -310,7 +310,7 @@ Pointing your browser to the `"/hello"` URL (<http://localhost:3000/hello> if yo
 
 ![Execution result](images/chapter25-03.png)
 
-Most web pages will need to load client-side resources sush as images, CSS and JavaScript files. A common practice is to put these assets in a dedicated subfolder.
+Most web pages will need to load client-side resources such as images, CSS and JavaScript files. A common practice is to put these assets in a dedicated subfolder.
 
 For example, create a `public` subfolder and a `hello.js` JavaScript file inside it with the following content.
 

@@ -12,11 +12,11 @@ if (condition) {
 }
 ```
 
-* The code block associated to an `if` is delimited by a pair of opening and closing braces. To improve lisibility, its statements are generally **indented** (shifted to the right).
+* The code block associated to an `if` is delimited by a pair of opening and closing braces. To improve visibility, its statements are generally **indented** (shifted to the right).
 
-* The **comparison operators** `===`, `!==`, `<`, `<=`, `>` et `>=` are used to compare numbers inside a condition. All of them return a boolean result.
+* The **comparison operators** `===`, `!==`, `<`, `<=`, `>` and `>=` are used to compare numbers inside a condition. All of them return a boolean result.
 
-* An `else` statement can be associated to an `if` to express an **alternative**. Depending on the condition value, either the code block associated to the `if` or the one associated to the `else` will be run, but never both. Thre is no limit to the depth of condition nesting.
+* An `else` statement can be associated to an `if` to express an **alternative**. Depending on the condition value, either the code block associated to the `if` or the one associated to the `else` will be run, but never both. There is no limit to the depth of condition nesting.
 
 ```js
 if (condition) {
@@ -27,7 +27,7 @@ else {
 }
 ```
 
-* Complex conditions can be created using the **logical operators** `&&` ("and"), `||` ("or") et `!` ("not").
+* Complex conditions can be created using the **logical operators** `&&` ("and"), `||` ("or") and `!` ("not").
 
 * The `switch` statement is used to kick off the execution of one code block among many, depending on the value of an expression.
 
@@ -47,15 +47,15 @@ default:
 
 ## What's a condition?
 
-Suppose we want to write a program that makes enter a number to the user, who then displays a message if the number is positive. Here the corresponding algorithm.
+Suppose we want to write a program that asks the user to enter a number and then displays a message if the number is positive. Here is the corresponding algorithm.
 
 ```text
 Enter a number
-Si the number is positive
+If the number is positive
     Display a message
 ```
 
-The message should display only if the number is positive: this means it's "subject" to a **condition**.
+The message should display only if the number is positive; this means it's "subject" to a **condition**.
 
 ### The `if` statement
 
@@ -164,7 +164,7 @@ You can translate an `if`/`else` statement like this: "If the condition is true,
 
 ### Nesting conditions
 
-Let's go next level and display a specific message if the entered number is zero. See this example, which has a positive test case, negative test case, and a last resort of the number being zero.
+Let's go to the next level and display a specific message if the entered number is zero. See this example, which has a positive test case, negative test case, and a last resort of the number being zero.
 
 ```js
 const number = Number(prompt("Enter a number:"));
@@ -173,7 +173,7 @@ if (number > 0) {
 } else {
   // number <= 0
   if (number < 0) {
-    console.log(`${number} is nagative`);
+    console.log(`${number} is negative`);
   } else {
     // number === 0
     console.log(`${number} is zero`);
@@ -189,9 +189,9 @@ The execution flow for the previous program can be expressed graphically using a
 
 ![Example flow diagram](images/chapter03-01.png)
 
-This example shows how essential indentation is for understanding a program's flow. There is no limit to the possible depth of condition nesting, but too many will affect program lisibility.
+This example shows how essential indentation is for understanding a program's flow. There is no limit to the possible depth of condition nesting, but too many will affect program visibility.
 
-A particular case happens when the only statement in a `else` block is an `if`. In that case, you can write this `else` on the same line as the `if` and without braces. Here's a more concise way to write our example program.
+A particular case happens when the only statement in an `else` block is an `if`. In that case, you can write this `else` on the same line as the `if` and without braces. Here's a more concise way to write our example program.
 
 ```js
 const number = Number(prompt("Enter a number:"));
@@ -210,7 +210,7 @@ if (number > 0) {
 
 Suppose you want to check if a number is between 0 and 100. You're essentially checking if it's "greater than or equal to 0" and "less than or equal to 100". Both sub-conditions must be satisfied at the same time.
 
-I> The expression `0 <= nombre <= 100` is correct from a mathematical point of view but cannot be written in JavaScript (neither in most other programming languages).
+I> The expression `0 <= number <= 100` is correct from a mathematical point of view but cannot be written in JavaScript (neither in most other programming languages).
 
 Here's how you'd translate that same check into JS.
 
@@ -220,7 +220,7 @@ if ((number >= 0) && (number <= 100)) {
 }
 ```
 
-I> Parentheses between sub-conditions are not mandatory but I advise you to add them anyway, to avoir nasty bugs in some special cases.
+I> Parentheses between sub-conditions are not mandatory but I advise you to add them anyway, to avoid nasty bugs in some special cases.
 
 The `&&` operator ("logical and") can apply to both types of boolean values. `true` will only be the result of the statement if both conditions are true.
 
@@ -350,7 +350,7 @@ The previous example show `"x = abc"` (the correct result) but also `"x = def"`.
 
 ## Coding time!
 
-Here are a few advice about these exercises:
+Here are a few pieces of advice about these exercises:
 
 * Keep on choosing your variable names wisely, and respect indentation when creating code blocks associated to `if`, `else` and `switch` statements.
 
@@ -364,7 +364,7 @@ Write a program that accepts a day name from the user, then shows the name of th
 
 ### Number comparison
 
-Write a program that accepts two numbers, then compare their values and displays an appropriate message in all cases.
+Write a program that accepts two numbers, then compares their values and displays an appropriate message in all cases.
 
 ### Final values
 
@@ -389,7 +389,7 @@ if (nb1 > nb2) {
 console.log(nb1, nb2, nb3);
 ```
 
-Before executing it, try to guess the final values of variables `nb1`, `nb2` and `nb3` depeding on their initial values. Complete the following table.
+Before executing it, try to guess the final values of variables `nb1`, `nb2` and `nb3` depending on their initial values. Complete the following table.
 
 |Initial values       |`nb1` final value |`nb2` final value|`nb3` final value|
 |---------------------|------------------|-----------------|-----------------|
@@ -405,7 +405,7 @@ Write a program that accepts a month number (between 1 and 12), then shows the n
 
 ### Following second
 
-Write a program that asks for a time under the form of three informations (hours, minutes, seconds). The program calculates and shows the time one second after. Incorrect inputs must be taken into account.
+Write a program that asks for a time under the form of three information (hours, minutes, seconds). The program calculates and shows the time one second after. Incorrect inputs must be taken into account.
 
 > This is not as simple as it seems... Look at the following results to see for yourself:
 >

@@ -11,7 +11,7 @@ You know now how to retrieve some data from web servers or APIs. This chapter wi
 ```js
 // Create a FormData object containing the HTML form data
 const formData = new FormData(myForm);
-// Send form data to the server with an aynchronous POST request
+// Send form data to the server with an asynchronous POST request
 fetch("https://my-server-url", {
   method: "POST",
   body: formData
@@ -52,7 +52,7 @@ fetch("https://https://my-server-url", {
 
 ## Sending data: the basics
 
-Sending data to a server is usually done with via an HTTP `POST` method. In that case, the request body contains the data to be sent.
+Sending data to a server is usually done via an HTTP `POST` method. In that case, the request body contains the data to be sent.
 
 The data format depends on what the server expects. It can either be:
 
@@ -99,7 +99,7 @@ document.querySelector("form").addEventListener("submit", e => {
   e.preventDefault();
   // Create a FormData object, passing the form as a parameter
   const formData = new FormData(e.target);
-  // Send form data to the server with an aynchronous POST request
+  // Send form data to the server with an asynchronous POST request
   fetch("https://thejsway-server.herokuapp.com/animals", {
     method: "POST",
     body: formData
@@ -142,7 +142,7 @@ fetch("https://thejsway-server.herokuapp.com/tshirt", {
   method: "POST",
   body: formData
 })
-  then(response => response.text())
+  .then(response => response.text())
     .then(result => {
       document.getElementById("result").textContent = result;
     })
